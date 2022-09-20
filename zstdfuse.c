@@ -186,7 +186,11 @@ int main(int argc, char* argv[])
     }
     else if(argc == 3)
     {
-        zststr = argv[1];
+        char zststr2[256];
+        realpath(argv[1], zststr2);
+        zststr = malloc(sizeof(char)*strlen(zststr2));
+        zststr = zststr2;
+        //zststr = argv[1];
 
         // GET UNCOMPRESSED FILE SIZE
         FILE* fout = NULL;
